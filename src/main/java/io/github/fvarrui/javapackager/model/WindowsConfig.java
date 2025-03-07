@@ -52,7 +52,7 @@ public class WindowsConfig implements Serializable {
 	private WindowsExeCreationTool exeCreationTool = WindowsExeCreationTool.launch4j;
 	private String vmLocation;
 	private WixUi wixUi;
-	private String culture;
+	private String culture = "";
 
 	public File getIcoFile() {
 		return icoFile;
