@@ -52,6 +52,7 @@ public class WindowsConfig implements Serializable {
 	private WindowsExeCreationTool exeCreationTool = WindowsExeCreationTool.launch4j;
 	private String vmLocation;
 	private WixUi wixUi;
+	private String culture = "";
 
 	public File getIcoFile() {
 		return icoFile;
@@ -325,6 +326,14 @@ public class WindowsConfig implements Serializable {
 		this.wixUi = wixUi;
 	}
 
+	public String getCulture() {
+		return culture;
+	}
+
+	public void setCulture(String culture) {
+		this.culture = culture;
+	}
+
 	@Override
 	public String toString() {
 		return "WindowsConfig [icoFile=" + icoFile + ", headerType=" + headerType + ", companyName=" + companyName
@@ -339,7 +348,7 @@ public class WindowsConfig implements Serializable {
 				+ ", generateSetup=" + generateSetup + ", generateMsi=" + generateMsi + ", generateMsm=" + generateMsm
 				+ ", msiUpgradeCode=" + msiUpgradeCode + ", wrapJar=" + wrapJar + ", setupLanguages=" + setupLanguages
 				+ ", setupMode=" + setupMode + ", signing=" + signing + ", registry=" + registry + ", removeOldLibs="
-				+ removeOldLibs + ", exeCreationTool=" + exeCreationTool + ", vmLocation=" + vmLocation + "]";
+				+ removeOldLibs + ", exeCreationTool=" + exeCreationTool + ", vmLocation=" + vmLocation + ", wixUi=" + wixUi + ", culture=" + culture + "]";
 	}
 
 	/**

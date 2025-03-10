@@ -73,10 +73,10 @@ public class GenerateMsi extends ArtifactGenerator<WindowsPackager> {
 		if(wixImages.exists()){
 			Logger.info("WIX IMAGES EXISTS FOR MSI");
 			List<String> lightArguments = getLightArguments(wixImages);
-			CommandUtils.execute("light", "-sw1076", "-spdb",lightArguments.get(0),lightArguments.get(1),lightArguments.get(2),lightArguments.get(3),lightArguments.get(4),lightArguments.get(5),lightArguments.get(6),lightArguments.get(7), "-out", msiFile, wixobjFile);
+			CommandUtils.execute("light", packager.getWinConfig().getCulture(),"-sw1076", "-spdb",lightArguments.get(0),lightArguments.get(1),lightArguments.get(2),lightArguments.get(3),lightArguments.get(4),lightArguments.get(5),lightArguments.get(6),lightArguments.get(7), "-out", msiFile, wixobjFile);
 		}
 		else{
-			CommandUtils.execute("light", "-sw1076", "-spdb", "-out", msiFile, wixobjFile);
+			CommandUtils.execute("light", packager.getWinConfig().getCulture(),"-sw1076", "-spdb", "-out", msiFile, wixobjFile);
 		}
 
 		// setup file
