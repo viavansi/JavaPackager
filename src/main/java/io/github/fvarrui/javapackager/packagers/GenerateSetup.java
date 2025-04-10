@@ -7,6 +7,7 @@ import io.github.fvarrui.javapackager.utils.CommandUtils;
 import io.github.fvarrui.javapackager.utils.FileUtils;
 import io.github.fvarrui.javapackager.utils.Logger;
 import io.github.fvarrui.javapackager.utils.VelocityUtils;
+import io.github.fvarrui.javapackager.utils.XMLUtils;
 import net.jsign.WindowsSigner;
 
 /**
@@ -49,6 +50,9 @@ public class GenerateSetup extends ArtifactGenerator<WindowsPackager> {
 		// generates iss file from velocity template
 		File issFile = new File(assetsFolder, name + ".iss");
 		VelocityUtils.render("windows/iss.vtl", issFile, packager);
+
+		//pretify iss file
+		XMLUtils.replaceWordInXMLFile(issFile,"quotes","\"\"" );
 
 		// generates Windows installer with inno setup command line compiler
 		CommandUtils.execute("iscc", "/O" + outputDirectory.getAbsolutePath(), "/F" + name + "_" + version, issFile);
